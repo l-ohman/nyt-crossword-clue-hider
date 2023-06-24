@@ -12,12 +12,14 @@ function main() {
 
 function renderSettingsMenu() {
   const puzzle = document.getElementById("puzzle");
-  const clueLists = document.querySelector(".xwd__layout--cluelists");
   const settingsMenu = createSettingsMenu();
+  const hrElement = document.createElement("hr");
+  const clueLists = document.querySelector(".xwd__layout--cluelists");
 
   const newContainer = document.createElement("div");
   newContainer.style.display = "block";
   newContainer.appendChild(settingsMenu);
+  newContainer.appendChild(hrElement);
   newContainer.appendChild(clueLists);
   clueLists.style.display = "flex";
 
@@ -40,6 +42,7 @@ function toggleClues() {
 function createSettingsMenu() {
   const divElement = document.createElement("div");
   divElement.id = "nyt-clue-hider-settings-menu";
+  divElement.style.paddingLeft = "10px";
 
   const headerText = document.createElement("p");
   headerText.textContent = "Settings menu";
@@ -56,19 +59,21 @@ function createSettingsMenu() {
   ];
   labelNames.forEach((labelName) => {
     const labelElement = document.createElement("label");
-    labelElement.setAttribute("name", "setting");
-    labelElement.textContent = labelName;
+    labelElement.style.display = "flex";
 
     const inputElement = document.createElement("input");
     inputElement.type = "radio";
-    inputElement.style.paddingLeft = "5px";
+    inputElement.name = "clue-hider-radio-group";
+    const labelText = document.createElement("p");
+    labelText.innerText = labelName;
+    labelText.style.marginLeft = "8px";
 
     labelElement.appendChild(inputElement);
+    labelElement.appendChild(labelText);
     buttonsContainer.appendChild(labelElement);
   });
 
   divElement.appendChild(headerText);
   divElement.appendChild(buttonsContainer);
-
   return divElement;
 }

@@ -1,12 +1,10 @@
-// alert("Hello world");
+function toggleClues() {
+  const solvedClues = document.querySelectorAll(".xwd__clue--filled");
 
-function toggleBorder() {
-  const divs = document.querySelectorAll("div");
-  divs.forEach((div) => {
-    const border = "1px solid red";
-    const alreadyHasBorder = div.style.border === border;
-    div.style.border = alreadyHasBorder ? "" : border;
+  solvedClues.forEach((clue) => {
+    const visible = clue.style.display !== "none";
+    clue.style.display = visible ? "none" : "flex";
   });
 }
 
-toggleBorder();
+toggleClues();

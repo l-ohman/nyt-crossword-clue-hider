@@ -1,7 +1,7 @@
-console.log("Background script loaded!");
+console.log("script loaded");
 
 chrome.action.onClicked.addListener((tab) => {
-  if (tab.url.includes("nytimes.com/crosswords")) {
+  if (tab.url.startsWith("https://www.nytimes.com/crosswords/")) {
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
       files: ["content.js"],

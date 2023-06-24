@@ -1,0 +1,12 @@
+{
+  "name": "nyt crossword thing",
+  "description": "idk",
+  "version": "0.0.1",
+  "author": "l-ohman",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "nyt thing",
+    "default_popup": "index.html"
+  },
+  "permissions": ["storage", "activeTab", "declarativeContent"]
+}

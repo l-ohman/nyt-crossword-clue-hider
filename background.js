@@ -1,25 +1,26 @@
 let inited = false;
 
-// todo: init should automatically run, rather than needed to be clicked
 chrome.action.onClicked.addListener((tab) => {
   if (!tab.url.startsWith("https://www.nytimes.com/crosswords/") || inited)
     return;
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: addPuzzleEventListener,
+    args: [true],
   });
+  inited = true;
 });
 
-// Add event listener to puzzle to automatically update as clues are solved/selected
-function addPuzzleEventListener() {
+function addPuzzleEventListener(debug) {
+  debug && console.log("Initializing 'NYT Crossword Clue Hider'");
+
   function setSolvedClueVisibility(visible) {
-    const clueClass = ".xwd__clue--li";
+    const clues = document.querySelectorAll(".xwd__clue--li");
+
     const primarySelectedClass = "xwd__clue--selected";
     const secondarySelectedClass = "xwd__clue--highlighted";
     const solvedClass = "xwd__clue--filled";
 
-    // Need to check all clues, in the case that a clue becomes un-solved
-    const clues = document.querySelectorAll(clueClass);
     clues.forEach((clue) => {
       if (
         clue.classList.contains(primarySelectedClass) ||
@@ -36,13 +37,20 @@ function addPuzzleEventListener() {
 
   function handleUpdate(e) {
     setSolvedClueVisibility(false);
-    console.log("Updated clues");
-    // e.stopPropagation();
+    debug && console.log("Updated clues");
   }
 
   const puzzle = document.getElementById("puzzle");
   puzzle.addEventListener("keydown", handleUpdate);
   puzzle.addEventListener("click", handleUpdate);
 
-  console.log("Event listeners added successfully");
+  function updateClueListHeaders() {
+    const headers = document.querySelectorAll(".xwd__clue-list--title");
+    headers.forEach((header) => {
+      header.innerHTML = `${header.innerHTML} (solved clues hidden)`;
+    });
+  }
+  updateClueListHeaders();
+
+  debug && console.log("Event listeners added successfully");
 }

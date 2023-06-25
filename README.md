@@ -11,9 +11,11 @@ I am not affliated in any way with The New York Times Company or New York Times 
 Once the extension has been added, open the Extensions menu (the puzzle icon at the top right of the browser) and click the "NYT Crossword Clue Hider." This will activate the extension if the current tab is an NYT Crossword tab. You can verify that the plugin is active by checking the logo:
 
 **Extension inactive**
+
 <img src="https://raw.githubusercontent.com/l-ohman/nyt-crossword-clue-hider/main/icons/inactive128.png" alt="Extension inactive"/>
 
 **Extension active**
+
 <img src="https://raw.githubusercontent.com/l-ohman/nyt-crossword-clue-hider/main/icons/active128.png" alt="Extension active"/>
 
 _For now, this must be done at the start of every crossword._

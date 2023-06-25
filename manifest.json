@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "nyt crossword clue hider",
-  "description": "hides solved nyt crossword clues",
+  "name": "NYT Crossword Clue Hider",
+  "description": "Hides solved clues in the NYT crossword",
   "version": "0.0.1",
   "author": "l-ohman",
   "action": {},

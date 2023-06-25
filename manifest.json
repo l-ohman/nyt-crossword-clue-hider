@@ -4,7 +4,13 @@
   "description": "Hides solved clues in the NYT crossword",
   "version": "0.0.1",
   "author": "l-ohman",
-  "action": {},
+  "action": {
+    "default_icon": {
+      "16": "icons/inactive128.png",
+      "48": "icons/inactive128.png",
+      "128": "icons/inactive128.png"
+    }
+  },
   "background": {
     "service_worker": "background.js"
   },

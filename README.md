@@ -12,6 +12,8 @@ Currently, this must be done at the start of every crossword.
 
 ## Todo
 
+- [ ] Add some legal disclaimer, I guess
 - [ ] Cluelist updates are behind by 1 event
 - [ ] Automatically init when a crossword is opened (instead of having to enable each time)
 - [ ] Ability to toggle the extension (currently the only way to disable is to refresh the page)
+- [ ] Create Firefox version

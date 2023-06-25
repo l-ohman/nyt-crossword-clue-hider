@@ -3,6 +3,14 @@ let inited = false;
 chrome.action.onClicked.addListener((tab) => {
   if (!tab.url.startsWith("https://www.nytimes.com/crosswords/") || inited)
     return;
+  chrome.action.setIcon({
+    path: {
+      16: "icons/active128.png",
+      48: "icons/active128.png",
+      128: "icons/active128.png",
+    },
+  });
+
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     func: addPuzzleEventListener,
